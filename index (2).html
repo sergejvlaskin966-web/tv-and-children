@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ТВ и дети — как телевидение влияет на детей</title>
+<meta name="description" content="Теория, исследования, брейнрот и интерактивные инструменты о влиянии телевидения на детей.">
+<style>
+/* ===== БАЗА И ТЕМЫ ===== */
+:root{--navy:#0f1e3d;--navy2:#1b2f5c;--or:#ff7a1a;--pink:#ff4d8d;--bg:#f6f7fb;--w:#fff;--tx:#1d2740;--mt:#5d6882;--line:#eceff6;--soft:#f1f3f9;--r:18px;--sh:0 10px 30px rgba(15,30,61,.08);--red:#e5484d;--grn:#1fa971}
+[data-theme=dark]{--bg:#0a1226;--w:#13203f;--tx:#e8edfa;--mt:#9eacce;--line:#26365e;--soft:#1b2a4d;--sh:0 10px 30px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--tx);background:var(--bg);line-height:1.65;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;transition:background .3s,color .3s}
+main{flex:1}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;color:inherit}
+.wrap{width:min(1180px,92%);margin:0 auto}
+h1{font-size:clamp(2.2rem,7vw,4.2rem);line-height:1.05;letter-spacing:-.03em}
+h2{font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:-.02em;line-height:1.2;margin:52px 0 12px}
+h3{font-size:1.12rem;margin-bottom:6px}
+p+p{margin-top:10px}
+.lead{color:var(--mt);font-size:1.1rem;max-width:720px;margin-bottom:28px}
+.card{background:var(--w);border-radius:var(--r);padding:24px;box-shadow:var(--sh);transition:transform .3s,box-shadow .3s,background .3s}
+.card:hover{transform:translateY(-3px)}
+.grid{display:grid;gap:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:1rem;border:2px solid transparent;cursor:pointer;transition:.25s;background:none}
+.btn-p{background:var(--or);color:#fff;box-shadow:0 8px 20px rgba(255,122,26,.35)}
+.btn-p:hover{background:#ff8f3d;transform:translateY(-2px)}
+.btn-o{border-color:#fff;color:#fff}
+.btn-o:hover{background:#fff;color:var(--navy)}
+.btn-d{background:var(--navy);color:#fff}
+.btn-d:hover{background:var(--navy2);transform:translateY(-2px)}
+[data-theme=dark] .btn-d{background:#27427f}
+.btn-l{border-color:var(--line);color:var(--tx);background:var(--w)}
+.btn-l:hover{border-color:var(--or);color:var(--or)}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.src{display:block;margin-top:12px;font-size:.82rem;color:var(--mt)}
+.pill{display:inline-block;font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:99px;color:#fff;margin-bottom:10px}
+.b-r{background:var(--red)}.b-g{background:var(--grn)}.b-o{background:var(--or)}
+.note{background:var(--soft);border-left:4px solid var(--or);padding:16px 20px;border-radius:0 14px 14px 0;color:var(--mt);margin:20px 0}
+#prog{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--pink),var(--or));z-index:100;transition:width .1s}
+figure{margin:0;border-radius:var(--r);overflow:hidden;position:relative;box-shadow:var(--sh)}
+figure img{width:100%;height:100%;min-height:200px;max-height:300px;object-fit:cover;display:block;background:linear-gradient(135deg,#dfe5f3,#f3e3d6);transition:transform .6s}
+figure:hover img{transform:scale(1.05)}
+figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 12px;color:#fff;font-size:.9rem;background:linear-gradient(transparent,rgba(15,30,61,.85))}
+.gal{margin:28px 0}
+
+/* ===== СТРАНИЦЫ ===== */
+.page{display:none;padding-bottom:72px}
+.page.active{display:block;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}}
+.phead{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:56px 0 48px;margin-bottom:32px}
+.phead p{color:#c3cde6;max-width:700px;margin-top:12px;font-size:1.1rem}
+.phead h1{font-size:clamp(2rem,6vw,3.2rem)}
+
+/* ===== ШАПКА ===== */
+header{position:sticky;top:0;z-index:50;background:rgba(15,30,61,.95);backdrop-filter:blur(12px);color:#fff}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:10px}
+.logo{font-weight:800;font-size:1.25rem;white-space:nowrap}.logo span{color:var(--or)}
+nav ul{list-style:none;display:none;gap:18px}
+nav a{opacity:.8;font-size:.92rem;padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
+nav a:hover{opacity:1}
+nav a.on{opacity:1;color:var(--or);border-color:var(--or)}
+.nav .btn{padding:9px 18px;font-size:.88rem;display:none}
+.ibtn{background:rgba(255,255,255,.1);border:0;color:#fff;width:40px;height:40px;border-radius:50%;font-size:1.1rem;cursor:pointer}
+.burger{background:none;border:0;color:#fff;font-size:1.7rem;cursor:pointer}
+nav.open ul{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--navy);padding:20px 6%;gap:16px}
+.right{display:flex;align-items:center;gap:10px}
+
+/* ===== ГЛАВНАЯ ===== */
+.hero{background:radial-gradient(circle at 80% 20%,#27427f,var(--navy) 60%);color:#fff;padding:56px 0 76px}
+.hero .wrap{display:grid;gap:36px;align-items:center}
+.hero h1 em{font-style:normal;color:var(--or)}
+.hero p.sub{font-size:1.2rem;opacity:.85;margin:18px 0 30px;max-width:520px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.tv{background:#1b2f5c;border-radius:26px;padding:16px;box-shadow:0 30px 60px rgba(0,0,0,.4);max-width:520px;width:100%;justify-self:center}
+.screen{border-radius:14px;min-height:240px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,var(--pink),var(--or));color:#fff;position:relative;overflow:hidden}
+.screen.flash{animation:noise .35s steps(6)}
+@keyframes noise{0%{filter:contrast(3) brightness(1.6)}100%{filter:none}}
+.screen .ch{font-weight:800;font-size:.85rem;letter-spacing:.1em;background:rgba(0,0,0,.28);padding:4px 12px;border-radius:99px;align-self:flex-start}
+.screen p{font-size:1.2rem;font-weight:600;line-height:1.4;margin:14px 0}
+.screen small{opacity:.85}
+.tvbar{display:flex;justify-content:space-between;align-items:center;margin-top:12px;color:#b9c3dc;font-size:.85rem;gap:10px}
+.tvbar button{background:var(--or);border:0;color:#fff;font-weight:700;padding:10px 18px;border-radius:99px;cursor:pointer}
+.tvbar button:hover{background:#ff8f3d}
+.nums{margin-top:-36px;position:relative}
+.nums .card b{display:block;font-size:2.1rem;color:var(--or);line-height:1.1}
+.go{display:block}.go .arr{color:var(--or);font-weight:700;margin-top:10px;display:inline-block}
+
+/* ===== ТЕОРИЯ / КОНТЕНТ ===== */
+.two{grid-template-columns:1fr}
+.good{border-top:5px solid var(--grn)}.bad{border-top:5px solid var(--red)}
+.card ul{list-style:none;margin-top:10px}.card li{padding:5px 0}
+.ic{font-size:2rem;margin-bottom:6px}
+.acc details{background:var(--w);border-radius:14px;padding:18px 22px;margin-bottom:10px;box-shadow:var(--sh)}
+.acc summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.acc summary::after{content:"+";color:var(--or);font-size:1.4rem;line-height:1}
+.acc details[open] summary::after{content:"–"}
+.acc p{color:var(--mt);margin-top:10px}
+.tbl{overflow-x:auto;border-radius:var(--r);box-shadow:var(--sh)}
+table{width:100%;border-collapse:collapse;background:var(--w);min-width:520px}
+th,td{padding:15px 20px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--navy);color:#fff}
+tr:last-child td{border:0}
+.chk label{display:flex;gap:14px;align-items:center;padding:14px 18px;background:var(--soft);border-radius:12px;margin-top:10px;cursor:pointer;transition:.2s}
+.chk input,.plan input{width:22px;height:22px;accent-color:var(--or);flex:none}
+.chk label:has(input:checked){background:rgba(255,122,26,.18);text-decoration:line-through;color:var(--mt)}
+.meter{height:10px;border-radius:99px;background:var(--soft);overflow:hidden;margin:16px 0 4px}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--or));transition:width .4s}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.chip{padding:9px 18px;border-radius:99px;border:2px solid var(--line);background:var(--w);cursor:pointer;font-weight:600;transition:.2s}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+[data-theme=dark] .chip.on{background:var(--or);border-color:var(--or)}
+.genre.hide{display:none}
+.mark{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.mark button{padding:10px 20px;border-radius:12px;font-weight:800;font-size:1.05rem;background:var(--soft);border:2px solid transparent;cursor:pointer;transition:.2s}
+.mark button.on{background:var(--navy);color:#fff}
+[data-theme=dark] .mark button.on{background:var(--or)}
+.srcs{list-style:none;counter-reset:s}
+.srcs li{counter-increment:s;padding:10px 0 10px 40px;position:relative;border-bottom:1px solid var(--line);color:var(--mt);font-size:.95rem}
+.srcs li::before{content:counter(s);position:absolute;left:0;top:10px;width:26px;height:26px;border-radius:50%;background:var(--or);color:#fff;font-size:.8rem;font-weight:700;display:grid;place-items:center}
+
+/* ===== ИГРА «МИФ ИЛИ ФАКТ» ===== */
+.game{max-width:760px;margin:0 auto;text-align:center}
+.game .st{font-size:1.35rem;font-weight:700;line-height:1.4;margin:18px 0 24px;min-height:4.2em}
+.game .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.game .row .btn{min-width:150px}
+.btn-m{background:var(--red);color:#fff}.btn-f{background:var(--grn);color:#fff}
+.btn-m:hover,.btn-f:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.fb{margin-top:20px;padding:16px 20px;border-radius:14px;text-align:left;display:none}
+.fb.show{display:block;animation:fade .35s}
+.fb.ok{background:rgba(31,169,113,.15);border:1px solid var(--grn)}.fb.no{background:rgba(229,72,77,.13);border:1px solid var(--red)}
+.gtop{display:flex;justify-content:space-between;color:var(--mt);font-size:.95rem}
+
+/* ===== БРЕЙНРОТ ===== */
+.tl{position:relative;margin:20px 0 0 14px;border-left:3px solid var(--or);padding-left:26px}
+.tl>div{position:relative;margin-bottom:22px;cursor:pointer}
+.tl>div::before{content:"";position:absolute;left:-37px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--w);border:4px solid var(--or);transition:.25s}
+.tl>div.on::before{background:var(--or);transform:scale(1.25)}
+.tl b{color:var(--or)}
+.tl .more{display:none;color:var(--mt);margin-top:6px}
+.tl>div.on .more{display:block;animation:fade .35s}
+.flip{cursor:pointer;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;border:0;width:100%}
+.flip .em{font-size:3rem}
+.flip .bk{display:none}
+.flip.on .fr{display:none}.flip.on .bk{display:block;animation:fade .3s}
+.flip .hint{font-size:.8rem;color:var(--or);font-weight:700}
+.gen{text-align:center}
+.gen .out2{font-size:2.6rem;margin:12px 0}
+.gen .nm{font-size:1.6rem;font-weight:800;color:var(--or)}
+.gen small{color:var(--mt)}
+.words{display:flex;flex-wrap:wrap;gap:10px}
+.words button{padding:10px 18px;border-radius:99px;border:2px solid var(--line);background:var(--w);cursor:pointer;font-weight:600}
+.words button.on{background:var(--or);border-color:var(--or);color:#fff}
+#wdef{margin-top:14px;min-height:3.2em}
+
+/* ===== ИССЛЕДОВАНИЕ ===== */
+.empty{background:var(--w);border:2px dashed var(--line);border-radius:var(--r);padding:36px 28px;text-align:center}
+.empty .ic{font-size:2.6rem}
+.chart small{color:var(--mt)}
+.bars{display:flex;align-items:flex-end;gap:14px;height:200px;margin-top:20px;border-bottom:1px solid var(--line)}
+.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
+.bar i{width:100%;max-width:70px;border-radius:10px 10px 0 0;background:linear-gradient(var(--pink),var(--or));transition:height 1s cubic-bezier(.2,.8,.2,1)}
+.bar b{font-size:.9rem;margin-bottom:6px}
+.lbls{display:flex;gap:14px;margin-top:8px;font-size:.78rem;text-align:center;color:var(--mt)}.lbls span{flex:1}
+.quote{font-style:italic}.quote cite{display:block;margin-top:12px;font-style:normal;color:var(--or);font-size:.9rem}
+
+/* ===== ИНСТРУМЕНТЫ ===== */
+.q{padding:16px 0;border-bottom:1px solid var(--line)}
+.q p{font-weight:600;margin-bottom:10px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opts label{cursor:pointer}
+.opts input{position:absolute;opacity:0}
+.opts span{display:inline-block;padding:9px 20px;border-radius:99px;background:var(--soft);border:2px solid transparent;transition:.2s}
+.opts input:checked+span{background:var(--navy);color:#fff}
+[data-theme=dark] .opts input:checked+span{background:var(--or)}
+.opts input:focus-visible+span{border-color:var(--or)}
+.res{display:none;margin-top:24px;padding:24px;border-radius:var(--r);color:#fff}
+.res.show{display:block;animation:fade .5s}
+.res.low{background:#16805a}.res.mid{background:#b87306}.res.high{background:#c9363b}
+.calc input[type=number],.calc select,.plan select{width:100%;padding:13px 16px;font-size:1.05rem;border:2px solid var(--line);border-radius:12px;margin:8px 0 12px;font-family:inherit;background:var(--w);color:var(--tx)}
+.calc input[type=range]{width:100%;accent-color:var(--or);margin:4px 0 10px}
+.calc input:focus,.calc select:focus{outline:0;border-color:var(--or)}
+.out{display:grid;gap:12px;margin-top:16px}
+.out div{background:var(--soft);border-radius:12px;padding:16px}
+.out b{display:block;font-size:1.7rem;color:var(--or)}
+.err{color:var(--red);font-size:.9rem;min-height:1.3em}
+.verdict{margin-top:14px;padding:14px 18px;border-radius:12px;display:none}
+.verdict.show{display:block;animation:fade .3s}
+.plan label.r{display:flex;gap:12px;align-items:center;padding:12px 16px;background:var(--soft);border-radius:12px;margin-top:8px;cursor:pointer}
+.plan pre{white-space:pre-wrap;font-family:inherit;background:var(--soft);padding:18px;border-radius:14px;margin-top:16px;border:2px dashed var(--or)}
+
+/* ===== CTA / FOOTER ===== */
+.cta{background:linear-gradient(135deg,var(--pink),var(--or));color:#fff;border-radius:24px;padding:44px 28px;text-align:center;margin-top:48px}
+.cta h2{margin-top:0}
+.cta .btn{background:#fff;color:var(--navy);margin-top:18px}
+.cta p{max-width:540px;margin:0 auto}
+footer{background:var(--navy);color:#b9c3dc;padding:52px 0 28px;font-size:.92rem}
+footer .grid{margin-bottom:28px}
+footer h4{color:#fff;margin-bottom:10px}
+footer li{list-style:none;padding:2px 0}
+.disc{border-top:1px solid #2c4170;padding-top:20px;text-align:center}
+
+/* ===== АДАПТИВ ===== */
+@media(min-width:768px){
+ .two{grid-template-columns:1fr 1fr}
+ .g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}
+ .out{grid-template-columns:repeat(3,1fr)}
+ .nav .btn{display:inline-flex}
+ footer .grid{grid-template-columns:repeat(3,1fr)}
+ .gal{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:1100px){
+ nav ul{display:flex}.burger{display:none}
+ .hero .wrap{grid-template-columns:1.1fr .9fr}
+ .g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<!-- ===== ШАПКА ===== -->
+<header>
+<div class="wrap nav">
+ <a href="#" class="logo" aria-label="На главную">ТВ <span>и дети</span></a>
+ <nav id="nav" aria-label="Главное меню">
+  <ul>
+   <li><a href="#theory" data-p="theory">Теория</a></li>
+   <li><a href="#brainrot" data-p="brainrot">Брейнрот</a></li>
+   <li><a href="#content" data-p="content">Контент</a></li>
+   <li><a href="#research" data-p="research">Исследование</a></li>
+   <li><a href="#tools" data-p="tools">Инструменты</a></li>
+   <li><a href="#tips" data-p="tips">Советы</a></li>
+  </ul>
+ </nav>
+ <div class="right">
+  <a class="btn btn-p" href="https://docs.google.com/forms/d/e/1FAIpQLSdOxXHmzbNO8n3Jsy7pN947C5pUuQKBQz4mImwIrRXs4Cj1VA/viewform?usp=publish-editor" target="_blank" rel="noopener" aria-label="Пройти опрос (откроется в новой вкладке)">Пройти опрос</a>
+  <button class="ibtn" id="theme" aria-label="Переключить тёмную тему">🌙</button>
+  <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">☰</button>
+ </div>
+</div>
+</header>
+
+<main>
+
+<!-- ===== ГЛАВНАЯ ===== -->
+<div class="page" id="p-home">
+<section class="hero">
+<div class="wrap">
+ <div>
+  <h1>Как <em>телевидение</em> влияет на детей</h1>
+  <p class="sub">Теория, брейнрот, исследования и инструменты для родителей. Всё можно потрогать и проверить.</p>
+  <div class="btns">
+   <a class="btn btn-p" href="#tools" aria-label="Перейти к тесту">Пройти тест</a>
+   <a class="btn btn-o" href="https://docs.google.com/forms/d/e/1FAIpQLSdOxXHmzbNO8n3Jsy7pN947C5pUuQKBQz4mImwIrRXs4Cj1VA/viewform?usp=publish-editor" target="_blank" rel="noopener" aria-label="Пройти опрос (новая вкладка)">Пройти опрос</a>
+  </div>
+ </div>
+ <!-- Интерактивный телевизор: переключайте каналы с фактами -->
+ <div class="tv" aria-label="Интерактивный телевизор с фактами">
+  <div class="screen" id="screen" aria-live="polite"><span class="ch" id="chn">КАНАЛ 1</span><p id="chtx"></p><small id="chsrc"></small></div>
+  <div class="tvbar"><span>Нажмите, чтобы переключить</span><button id="chbtn" type="button">Следующий канал ▶</button></div>
+ </div>
+</div>
+</section>
+
+<div class="wrap">
+ <div class="grid g3 nums">
+  <div class="card"><b><span class="cnt" data-to="230">0</span>%</b>рост частоты слова «brain rot» в 2024 году (Oxford)</div>
+  <div class="card"><b><span class="cnt" data-to="98299">0</span></b>участников в мета-анализе о коротких видео (2025)</div>
+  <div class="card"><b><span class="cnt" data-to="1854">0</span></b>год первого упоминания «brain rot» у Генри Торо</div>
+ </div>
+
+ <div class="grid gal">
+  <figure><img data-e="📺" src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=900&q=80" alt="Телевизор в гостиной" loading="lazy"><figcaption>Телевизор — часть дома</figcaption></figure>
+  <figure><img data-e="👧" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80" alt="Дети учатся и играют" loading="lazy"><figcaption>Экран конкурирует с игрой и учёбой</figcaption></figure>
+  <figure><img data-e="📱" src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=900&q=80" alt="Смартфон с соцсетями" loading="lazy"><figcaption>Короткие видео в кармане</figcaption></figure>
+ </div>
+
+ <h2 style="margin-top:20px">Разделы сайта</h2>
+ <div class="grid g3">
+  <a class="card go" href="#theory"><div class="ic">📚</div><h3>Теория</h3><p>Эксперименты, исследования, возрастные нормы, игра «Миф или факт».</p><span class="arr">Открыть →</span></a>
+  <a class="card go" href="#brainrot"><div class="ic">🧠</div><h3>Брейнрот</h3><p>Что это, откуда взялось, герои Italian brainrot и что говорит наука.</p><span class="arr">Открыть →</span></a>
+  <a class="card go" href="#content"><div class="ic">🎬</div><h3>Контент</h3><p>Жанры с фильтром, ТВ против интернета, возрастная маркировка.</p><span class="arr">Открыть →</span></a>
+  <a class="card go" href="#research"><div class="ic">📊</div><h3>Исследование</h3><p>Наш пилотный опрос молодёжи 19 лет.</p><span class="arr">Открыть →</span></a>
+  <a class="card go" href="#tools"><div class="ic">🧮</div><h3>Инструменты</h3><p>Тест для семьи и калькулятор экранного времени с нормами ВОЗ.</p><span class="arr">Открыть →</span></a>
+  <a class="card go" href="#tips"><div class="ic">💡</div><h3>Советы</h3><p>Составьте семейный план по использованию экранов.</p><span class="arr">Открыть →</span></a>
+ </div>
+</div>
+</div>
+
+<!-- ===== ТЕОРИЯ ===== -->
+<div class="page" id="p-theory">
+<div class="phead"><div class="wrap"><h1>Теория</h1><p>Что говорят о влиянии телевидения классические теории и исследования психологов, педиатров и социологов.</p></div></div>
+<div class="wrap">
+ <div class="grid two">
+  <div class="card good"><h3>✅ Возможная польза</h3><ul>
+   <li>• Развитие речи и словаря при качественном возрастном контенте и совместном просмотре</li>
+   <li>• Подготовка к школе: образовательные передачи связаны с лучшей готовностью к обучению</li>
+   <li>• Расширение кругозора, знакомство с культурой и наукой</li>
+   <li>• Повод для общения: обсуждение просмотренного в семье</li></ul></div>
+  <div class="card bad"><h3>⚠️ Возможные риски</h3><ul>
+   <li>• Подражание агрессии и нормализация насилия</li>
+   <li>• Страхи, тревожность, нарушения сна</li>
+   <li>• Проблемы с вниманием при раннем и длительном просмотре</li>
+   <li>• Вытеснение игры, чтения, движения и живого общения</li></ul></div>
+ </div>
+ <div class="note"><b>Важно:</b> большинство исследований показывают связь (корреляцию), а не доказанную причину. Авторы работ ниже сами подчёркивают это, поэтому мы используем слова «связано с», а не «вызывает».</div>
+
+ <h2 style="margin-top:28px">Классические теории и исследования</h2>
+ <div class="grid g3">
+  <div class="card"><span class="pill b-r">Социальное научение</span><h3>Эксперимент с куклой Бобо</h3><p>Альберт Бандура с коллегами (1961) показал детям взрослого, который бил надувную куклу. Дети, видевшие агрессию, чаще повторяли похожие действия, чем контрольная группа. В версии с фильмом результат был близким: подражать можно и тому, что видишь на экране.</p><span class="src">Bandura, Ross & Ross, 1961, 1963</span></div>
+  <div class="card"><span class="pill b-o">Теория культивации</span><h3>«Синдром злого мира»</h3><p>Джордж Гербнер и Ларри Гросс (1976): чем больше человек смотрит ТВ, тем сильнее его картина мира похожа на телевизионную. Активные зрители чаще переоценивали опасность окружающего мира.</p><span class="src">Gerbner & Gross, 1976</span></div>
+  <div class="card"><span class="pill b-r">Длительное наблюдение</span><h3>От детства до зрелости</h3><p>Роуэлл Хьюсманн с коллегами наблюдали за людьми с 6–10 лет до 30. Просмотр насилия на экране в детстве предсказывал агрессивное поведение во взрослом возрасте, причём связь сохранялась при учёте других факторов.</p><span class="src">Huesmann et al., Developmental Psychology, 2003</span></div>
+  <div class="card"><span class="pill b-r">Внимание</span><h3>Ранний просмотр и концентрация</h3><p>В исследовании Димитриса Христакиса (2004) каждый час ежедневного просмотра в 1 и 3 года был связан с ростом риска проблем с вниманием в 7 лет примерно на 10%.</p><span class="src">Christakis et al., Pediatrics, 2004</span></div>
+  <div class="card"><span class="pill b-r">Исполнительные функции</span><h3>Быстрые мультфильмы</h3><p>Анжелина Лиллард и Дженнифер Петерсон (2011) сравнили 4-летних детей после 9 минут быстрого мультфильма, образовательной передачи и рисования. После динамичного мультфильма дети хуже справлялись с заданиями на самоконтроль.</p><span class="src">Lillard & Peterson, Pediatrics, 2011</span></div>
+  <div class="card"><span class="pill b-g">Образовательный контент</span><h3>Эффект «Улицы Сезам»</h3><p>Качественные образовательные программы для дошкольников связаны с лучшей готовностью к школе и успеваемостью. Важны содержание, возраст и участие взрослого.</p><span class="src">Anderson et al., 2001; Kearney & Levine, 2019</span></div>
+  <div class="card"><span class="pill b-r">Фоновый телевизор</span><h3>Когда ТВ «просто шумит»</h3><p>Исследование Шмидт и коллег (2008): включённый фоном телевизор сокращал игру малышей и прерывал её, даже когда дети «не смотрели» передачу. Кроме того, работа Христакиса (2009) связала слышимый ТВ с меньшим числом слов взрослых и вокализаций ребёнка дома.</p><span class="src">Schmidt et al., Child Development, 2008; Christakis et al., 2009</span></div>
+  <div class="card"><span class="pill b-o">Видео-дефицит</span><h3>Живой взрослый учит лучше</h3><p>Работы Андерсон и Пемпек (2005) описывают «видео-дефицит»: дети до 2–3 лет хуже усваивают информацию с экрана, чем при живом показе. Поэтому для малышей важнее разговор и игра.</p><span class="src">Anderson & Pempek, American Behavioral Scientist, 2005</span></div>
+  <div class="card"><span class="pill b-r">Короткие видео</span><h3>Мета-анализ 2025 года</h3><p>Обзор 71 исследования (98 299 участников) показал: больше коротких видео связано с более слабым вниманием и самоконтролем, а также с большим стрессом и тревогой. Связь была похожей у подростков и взрослых. Причинность пока не доказана.</p><span class="src">Nguyen et al., Psychological Bulletin, 151(9), 2025</span></div>
+ </div>
+
+ <h2>Влияние по возрастам</h2>
+ <div class="grid g4">
+  <div class="card"><div class="ic">🍼</div><h3>До 3 лет</h3><p>Мозг лучше учится на живом общении. ВОЗ: до 1 года экраны не рекомендуются, в 2–4 года не более часа в день.</p></div>
+  <div class="card"><div class="ic">🧸</div><h3>3–7 лет</h3><p>Возраст подражания: дети копируют героев и плохо отличают вымысел от реальности. AAP: до часа качественного контента в день, лучше вместе с взрослым.</p></div>
+  <div class="card"><div class="ic">🎒</div><h3>7–11 лет</h3><p>Формируются нормы поведения и дружба. Главные риски: вытеснение уроков, сна и активности, взрослый контент.</p></div>
+  <div class="card"><div class="ic">🎧</div><h3>Подростки</h3><p>Контент влияет на самооценку, образ тела и отношение к риску. Важнее всего критическое мышление и обсуждение.</p></div>
+ </div>
+
+ <h2>Проверьте себя: миф или факт?</h2>
+ <div class="card game" id="game1"></div>
+
+ <h2>Глоссарий</h2>
+ <div class="acc">
+  <details><summary>Медиаграмотность</summary><p>Умение находить, анализировать, критически оценивать и создавать медиасообщения.</p></details>
+  <details><summary>Теория культивации</summary><p>Концепция Гербнера: длительный просмотр ТВ формирует представления о реальности, близкие к телевизионным.</p></details>
+  <details><summary>Экранное время</summary><p>Время за телевизором, смартфоном, планшетом, компьютером и консолью. Различают пассивное (просмотр) и активное (творчество, обучение) использование.</p></details>
+  <details><summary>Контент-анализ</summary><p>Метод, который количественно изучает содержание передач: частоту сцен насилия, стереотипы, темы.</p></details>
+  <details><summary>Медиапотребление</summary><p>Привычки человека: что, как часто и на каких устройствах он смотрит и читает.</p></details>
+  <details><summary>Социальное научение</summary><p>Теория Бандуры: люди усваивают модели поведения, наблюдая за другими, в том числе за героями экрана.</p></details>
+  <details><summary>Видео-дефицит</summary><p>Малыши до 2–3 лет хуже усваивают информацию с экрана, чем при живом показе.</p></details>
+  <details><summary>Корреляция и причинность</summary><p>Связь двух явлений ещё не доказывает, что одно вызывает другое: может влиять третий фактор или причинность может идти в обратную сторону.</p></details>
+ </div>
+
+ <h2>Источники</h2>
+ <ol class="srcs">
+  <li>WHO. Guidelines on physical activity, sedentary behaviour and sleep for children under 5 years of age. 2019.</li>
+  <li>American Academy of Pediatrics. Media and Young Minds. Pediatrics, 138(5), 2016.</li>
+  <li>Bandura A., Ross D., Ross S. Transmission of aggression through imitation of aggressive models. 1961.</li>
+  <li>Gerbner G., Gross L. Living with Television: The Violence Profile. Journal of Communication, 1976.</li>
+  <li>Huesmann L.R. et al. Longitudinal relations between children's exposure to TV violence and their aggressive and violent behavior in young adulthood. Developmental Psychology, 39(2), 2003.</li>
+  <li>Christakis D.A. et al. Early television exposure and subsequent attentional problems in children. Pediatrics, 113(4), 2004.</li>
+  <li>Christakis D.A. et al. Audible television and decreased adult words, infant vocalizations, and conversational turns. Archives of Pediatrics & Adolescent Medicine, 2009.</li>
+  <li>Lillard A.S., Peterson J. The immediate impact of different types of television on young children's executive function. Pediatrics, 128(4), 2011.</li>
+  <li>Schmidt M.E. et al. The effects of background television on the toy play behavior of very young children. Child Development, 2008.</li>
+  <li>Anderson D.R., Pempek T.A. Television and very young children. American Behavioral Scientist, 2005.</li>
+  <li>Nguyen L. et al. Feeds, feelings, and focus: a systematic review and meta-analysis of the cognitive and mental health correlates of short-form video use. Psychological Bulletin, 151(9), 1125–1146, 2025. doi:10.1037/bul0000498</li>
+ </ol>
+</div>
+</div>
+
+<!-- ===== БРЕЙНРОТ ===== -->
+<div class="page" id="p-brainrot">
+<div class="phead"><div class="wrap"><h1>Брейнрот: что это такое</h1><p>«Гниение мозга» стало словом 2024 года. Разбираем, откуда это взялось, кто такие герои мемов и что об этом знает наука.</p></div></div>
+<div class="wrap">
+ <div class="grid two" style="align-items:center">
+  <div>
+   <h3>Определение</h3>
+   <p>Oxford определяет <b>brain rot</b> как предполагаемое ухудшение умственного или интеллектуального состояния человека из-за избытка тривиального и нетребовательного материала, сегодня особенно онлайн-контента.</p>
+   <p>Это не медицинский диагноз, а образное выражение. В молодёжной речи так называют и сам поток абсурдного контента, и состояние после долгой прокрутки ленты.</p>
+  </div>
+  <figure><img data-e="🧠" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Молодые люди вместе с телефонами" loading="lazy"><figcaption>Поколение Z и Альфа выросло с экранами</figcaption></figure>
+ </div>
+
+ <h2>История слова: кликните на событие</h2>
+ <div class="tl" id="tl">
+  <div class="on"><b>1854</b> · Генри Торо, «Уолден»<p class="more">Первое зафиксированное использование «brain-rot». Торо спрашивал, не попытается ли кто-нибудь вылечить «гниль мозга», которая распространена гораздо шире и опаснее картофельной гнили. Его смысл касался упрощения сложных идей в обществе.</p></div>
+  <div><b>2023</b> · Skibidi Toilet и слово «rizz»<p class="more">Слово года Oxford 2023, rizz, — сокращение от charisma. В том же году на YouTube набирает популярность серия Skibidi Toilet про поющие унитазы с человеческими головами. Для многих она стала символом «абсурдного» детского контента.</p></div>
+  <div><b>2 декабря 2024</b> · Слово года Oxford<p class="more">Oxford University Press назвал «brain rot» словом года. Частота использования выросла на 230% по сравнению с 2023 годом. В голосовании участвовали более 37 000 человек, а выбор сделали эксперты с учётом голосов и языковых данных. Среди финалистов были demure, slop, dynamic pricing, romantasy и lore.</p></div>
+  <div><b>Начало 2025</b> · Italian brainrot<p class="more">В TikTok появляются сгенерированные ИИ абсурдные существа с «итальянскими» именами и закадровым голосом. Первым героем тренда считают Tralalero Tralala. Затем к нему присоединились Bombardiro Crocodilo, Brr Brr Patapim и другие.</p></div>
+  <div><b>Сентябрь 2025</b> · Мета-анализ в Psychological Bulletin<p class="more">Исследователи из Университета Гриффита проанализировали 71 работу (98 299 участников). Больше коротких видео было связано с более слабым вниманием и самоконтролем, а также с большим стрессом и тревогой.</p></div>
+ </div>
+
+ <h2>Герои Italian brainrot: нажмите на карточку</h2>
+ <p class="lead">Это ИИ-мемы начала 2025 года. Их придумывают пользователи, а не студии. Сюжета у них почти нет: сначала смешно, потом цепляет повтором.</p>
+ <div class="grid g4" id="chars"></div>
+
+ <h2>Генератор: придумайте своего героя</h2>
+ <div class="card gen">
+  <p style="color:var(--mt)">Так создаются «герои» Italian brainrot: берём животное, предмет и добавляем «итальянское» имя. Нажмите кнопку несколько раз.</p>
+  <div class="out2" id="gemo">🦈👟</div>
+  <div class="nm" id="gname">Нажмите «Создать»</div>
+  <small id="gdesc"></small>
+  <p style="margin-top:16px"><button class="btn btn-d" id="ggo" type="button">🎲 Создать героя</button></p>
+  <small style="display:block;margin-top:10px">Этот персонаж вымышленный и создан генератором на странице. Он не относится к реальным мемам.</small>
+ </div>
+
+ <h2>Словарик: нажмите на слово</h2>
+ <div class="card">
+  <div class="words" id="words"></div>
+  <p id="wdef" style="color:var(--mt)">Выберите слово.</p>
+ </div>
+
+ <h2>Что говорит наука</h2>
+ <div class="grid two">
+  <div class="card good"><h3>Что установлено</h3><ul>
+   <li>• Мета-анализ 2025 года: связь коротких видео с более слабым вниманием (r = −0,38) и самоконтролем (r = −0,41)</li>
+   <li>• Также связь с большим стрессом (r = −0,34) и тревогой (r = −0,33)</li>
+   <li>• Сильнее связь была при шкалах «зависимого» использования, чем при простом подсчёте часов</li></ul></div>
+  <div class="card bad"><h3>Чего пока нет</h3><ul>
+   <li>• Доказательства, что видео <b>вызывают</b> проблемы: люди в стрессе могут чаще листать ленту</li>
+   <li>• Достаточно лонгитюдных и экспериментальных работ</li>
+   <li>• Разделения эффекта формата и общего времени в соцсетях: лишь малая часть работ это учитывала</li></ul></div>
+ </div>
+ <span class="src">Nguyen et al., Psychological Bulletin, 2025. Значения r — корреляции: чем ближе к −1, тем сильнее связь.</span>
+
+ <h2>Миф или факт: брейнрот</h2>
+ <div class="card game" id="game2"></div>
+
+ <div class="note"><b>Как относиться:</b> не всякий странный мем вреден. Тревожным сигналом служит потеря контроля: ребёнок не может остановиться, страдают сон, учёба и общение. Поговорите с ним о том, что он смотрит, вместо запрета «всего этого».</div>
+
+ <h2>Источники</h2>
+ <ol class="srcs">
+  <li>Oxford University Press. «Brain rot» named Oxford Word of the Year 2024. 2 December 2024. corp.oup.com</li>
+  <li>Nguyen L. et al. Psychological Bulletin, 151(9), 1125–1146, 2025. doi:10.1037/bul0000498</li>
+  <li>Thoreau H.D. Walden, 1854 (заключительная глава).</li>
+  <li>Italian brainrot (описание явления). Wikipedia; Know Your Meme (Tung Tung Tung Sahur).</li>
+ </ol>
+</div>
+</div>
+
+<!-- ===== КОНТЕНТ ===== -->
+<div class="page" id="p-content">
+<div class="phead"><div class="wrap"><h1>Контент</h1><p>Не всё, что показывает экран, одинаково. Разберём жанры, отличия ТВ от интернета и возрастную маркировку.</p></div></div>
+<div class="wrap">
+ <h2 style="margin-top:0">Жанры и их влияние</h2>
+ <div class="chips" role="group" aria-label="Фильтр жанров">
+  <button class="chip on" data-f="all" type="button">Все</button>
+  <button class="chip" data-f="g" type="button">Польза</button>
+  <button class="chip" data-f="r" type="button">Риск</button>
+ </div>
+ <div class="grid g3">
+  <div class="card genre" data-k="g"><span class="pill b-g">польза</span><h3>🎨 Мультфильмы</h3><p>Развивают фантазию, учат дружбе и сочувствию. Но динамичные и агрессивные сюжеты провоцируют подражание и утомляют внимание малышей.</p></div>
+  <div class="card genre" data-k="r"><span class="pill b-r">риск</span><h3>🎬 Фильмы</h3><p>Сцены насилия и ужасов вызывают страхи и нарушают сон. Смотрите по возрастной маркировке.</p></div>
+  <div class="card genre" data-k="r"><span class="pill b-r">риск</span><h3>📺 Реклама</h3><p>Формирует желание потреблять и стереотипы внешности. Маленькие дети плохо отличают рекламу от программы.</p></div>
+  <div class="card genre" data-k="r"><span class="pill b-r">риск</span><h3>📰 Новости</h3><p>Тревожные сюжеты без объяснений пугают младших детей и усиливают ощущение опасности мира.</p></div>
+  <div class="card genre" data-k="g"><span class="pill b-g">польза</span><h3>🎓 Познавательное</h3><p>Научпоп и документальное кино расширяют кругозор и пробуждают интерес к науке и природе.</p></div>
+  <div class="card genre" data-k="r"><span class="pill b-r">риск</span><h3>🤳 Блогеры и короткие видео</h3><p>Скрытая реклама, нереалистичные образцы жизни, бесконечная лента. Подробнее в разделе «Брейнрот».</p></div>
+ </div>
+
+ <h2>ТВ и интернет</h2>
+ <div class="tbl"><table>
+  <thead><tr><th>Критерий</th><th>Телевидение</th><th>Интернет</th></tr></thead>
+  <tbody>
+   <tr><td>Контроль контента</td><td>Сетка вещания и возрастные метки</td><td>Фильтров мало, алгоритмы подбирают контент сами</td></tr>
+   <tr><td>Выбор</td><td>Ограничен каналами</td><td>Практически бесконечный</td></tr>
+   <tr><td>Интерактивность</td><td>Пассивный просмотр</td><td>Реакции, комментарии, создание контента</td></tr>
+   <tr><td>Совместный просмотр</td><td>Чаще всей семьёй</td><td>Чаще индивидуально, на личном устройстве</td></tr>
+   <tr><td>Риск «залипания»</td><td>Умеренный: передача заканчивается</td><td>Высокий: бесконечная лента и автовоспроизведение</td></tr>
+  </tbody></table></div>
+
+ <h2>Возрастная маркировка в России</h2>
+ <div class="card">
+  <p>Закон № 436-ФЗ «О защите детей от информации, причиняющей вред их здоровью и развитию» требует маркировать продукцию знаком возрастной категории. Нажмите на знак, чтобы увидеть, что он значит.</p>
+  <div class="mark" id="mark"><button class="on" type="button" data-t="Для детей, не достигших возраста шести лет.">0+</button><button type="button" data-t="Для детей, достигших возраста шести лет.">6+</button><button type="button" data-t="Для детей, достигших возраста двенадцати лет.">12+</button><button type="button" data-t="Для детей, достигших возраста шестнадцати лет.">16+</button><button type="button" data-t="Запрещена для детей: информация не допускается к распространению среди несовершеннолетних.">18+</button></div>
+  <p id="mdef" style="font-weight:600">Для детей, не достигших возраста шести лет.</p>
+  <p style="color:var(--mt)">Метка — подсказка для родителей, но она не заменяет их оценки: посмотрите передачу заранее.</p>
+  <span class="src">Федеральный закон от 29.12.2010 № 436-ФЗ</span>
+ </div>
+
+ <h2>Чек-лист «Опасный контент»</h2>
+ <div class="card chk">
+  <p style="color:var(--mt)">Отметьте признаки, которые вы замечали в передачах и роликах. Ответы никуда не сохраняются.</p>
+  <label><input type="checkbox"> Сцены жестокости без последствий для героев</label>
+  <label><input type="checkbox"> Опасные трюки и вредные советы</label>
+  <label><input type="checkbox"> Агрессивная реклама и манипуляции</label>
+  <label><input type="checkbox"> Контент «18+» в дневном эфире</label>
+  <label><input type="checkbox"> Травля и высмеивание героев</label>
+  <div class="meter"><i id="cm"></i></div><small id="ct" style="color:var(--mt)">Отмечено: 0 из 5</small>
+ </div>
+</div>
+</div>
+
+<!-- ===== ИССЛЕДОВАНИЕ ===== -->
+<div class="page" id="p-research">
+<div class="phead"><div class="wrap"><h1>Исследование</h1><p>Пилотный опрос молодёжи 19 лет о телевизионном детстве. Это не репрезентативная выборка, а срез мнений поколения, выросшего с телевизором.</p></div></div>
+<div class="wrap">
+ <div class="card" style="margin-bottom:24px">
+  <h3>О нашем опросе</h3>
+  <p>Мы опрашиваем людей 19 лет: сколько времени они смотрели ТВ в детстве, были ли в семье правила и как просмотр отражался на поведении. Опрос анонимный и занимает несколько минут.</p>
+  <p style="margin-top:16px"><a class="btn btn-p" href="https://docs.google.com/forms/d/e/1FAIpQLSdOxXHmzbNO8n3Jsy7pN947C5pUuQKBQz4mImwIrRXs4Cj1VA/viewform?usp=publish-editor" target="_blank" rel="noopener" aria-label="Пройти полный опрос (новая вкладка)">Пройти полный опрос</a></p>
+ </div>
+ <div id="survey"></div>
+</div>
+</div>
+
+<!-- ===== ИНСТРУМЕНТЫ ===== -->
+<div class="page" id="p-tools">
+<div class="phead"><div class="wrap"><h1>Инструменты</h1><p>Короткий тест и калькулятор с нормами ВОЗ помогут увидеть реальную картину в вашей семье.</p></div></div>
+<div class="wrap">
+ <div class="grid two" style="align-items:start">
+  <div class="card" id="test">
+   <h3>Безопасно ли ТВ в вашей семье?</h3>
+   <div class="meter"><i id="qm"></i></div><small id="qt" style="color:var(--mt)">Отвечено: 0 из 7</small>
+   <form id="quiz" onsubmit="return false"></form>
+   <p class="err" id="qerr" role="alert"></p>
+   <button class="btn btn-d" id="qgo" type="button">Узнать результат</button>
+   <button class="btn btn-l" id="qre" type="button" style="display:none">Пройти заново</button>
+   <div class="res" id="qres" aria-live="polite"></div>
+  </div>
+  <div class="card calc">
+   <h3>Калькулятор экранного времени</h3>
+   <label for="age" style="color:var(--mt)">Возраст ребёнка</label>
+   <select id="age"><option value="0">до 1 года</option><option value="1">1 год</option><option value="2" selected>2–5 лет</option><option value="3">6 лет и старше</option></select>
+   <label for="hrs" style="color:var(--mt)">Часов в день: <b id="hv">3</b></label>
+   <input type="range" id="hr" min="0" max="12" step="0.5" value="3" aria-label="Часов в день, ползунок">
+   <input type="number" id="hrs" min="0" max="24" step="0.5" value="3" aria-label="Часов в день">
+   <p class="err" id="cerr" role="alert"></p>
+   <div class="out" id="cout"></div>
+   <div class="verdict" id="cv" aria-live="polite"></div>
+   <span class="src">Нормы: ВОЗ (2019) и AAP (2016). Для школьников универсального лимита нет: AAP советует индивидуальный план.</span>
+  </div>
+ </div>
+ <p style="margin-top:30px"><a class="btn btn-p" href="https://docs.google.com/forms/d/e/1FAIpQLSdOxXHmzbNO8n3Jsy7pN947C5pUuQKBQz4mImwIrRXs4Cj1VA/viewform?usp=publish-editor" target="_blank" rel="noopener" aria-label="Пройти полный опрос (новая вкладка)">Пройти полный опрос</a></p>
+</div>
+</div>
+
+<!-- ===== СОВЕТЫ ===== -->
+<div class="page" id="p-tips">
+<div class="phead"><div class="wrap"><h1>Советы родителям</h1><p>Рекомендации опираются на позиции ВОЗ и Американской академии педиатрии.</p></div></div>
+<div class="wrap">
+ <div class="grid g3">
+  <div class="card"><h3>👶 До 3 лет</h3><p>Лучше без экрана: игры, книги, прогулки и живое общение. ВОЗ не рекомендует экраны до года, а в 2–4 года советует не больше часа в день.</p></div>
+  <div class="card"><h3>🧒 3–7 лет</h3><p>До часа в день, только детский контент, желательно вместе с вами. Выбирайте спокойные передачи вместо быстрых и агрессивных.</p></div>
+  <div class="card"><h3>🎒 7–11 лет</h3><p>Договоритесь о расписании: сначала уроки и прогулка, потом экран. Следите за возрастной маркировкой.</p></div>
+  <div class="card"><h3>🎧 Подростки</h3><p>Обсуждайте увиденное, спрашивайте мнение, развивайте критическое мышление. Доверие работает лучше запретов.</p></div>
+  <div class="card"><h3>🚫 Общие правила</h3><p>Без экранов за час до сна и во время еды. Выключайте ТВ, когда его никто не смотрит: фон мешает играм и речи.</p></div>
+  <div class="card"><h3>💬 Смотрите вместе</h3><p>Задавайте вопросы: «Почему герой так поступил?», «Как бы поступил ты?». Совместный просмотр превращает экран в разговор.</p></div>
+ </div>
+
+ <h2>Соберите семейный план</h2>
+ <div class="card plan">
+  <p style="color:var(--mt)">Выберите возраст и правила, которые подходят вашей семье. Мы составим текст, который можно скопировать и обсудить с ребёнком.</p>
+  <label for="pa" style="font-weight:600;display:block;margin-top:14px">Возраст ребёнка</label>
+  <select id="pa"><option value="до 1 года: без экранов (рекомендация ВОЗ)">до 1 года</option><option value="1 год: экраны не рекомендуются (ВОЗ)">1 год</option><option value="2–5 лет: не больше 1 часа в день качественного контента, вместе с взрослым (ВОЗ, AAP)" selected>2–5 лет</option><option value="6–11 лет: лимит и расписание обсуждаем вместе, сначала уроки и прогулка">6–11 лет</option><option value="12+ лет: лимит и правила составляем вместе, главное — доверие и обсуждение">12+ лет</option></select>
+  <label class="r"><input type="checkbox" checked> Без экранов во время еды</label>
+  <label class="r"><input type="checkbox" checked> Экраны выключаются за час до сна</label>
+  <label class="r"><input type="checkbox" checked> Смотрим вместе и обсуждаем</label>
+  <label class="r"><input type="checkbox"> Проверяем возрастную маркировку</label>
+  <label class="r"><input type="checkbox"> Один «день без экранов» в неделю</label>
+  <label class="r"><input type="checkbox"> Фоновое ТВ выключаем</label>
+  <p style="margin-top:16px"><button class="btn btn-d" id="pgo" type="button">Составить план</button></p>
+  <pre id="pout" style="display:none"></pre>
+  <p style="margin-top:12px"><button class="btn btn-l" id="pcp" type="button" style="display:none">Скопировать</button> <small id="pcs" style="color:var(--mt)"></small></p>
+ </div>
+
+ <div class="cta">
+  <h2>Помогите нашему исследованию</h2>
+  <p>Пройдите опрос: это займёт несколько минут и поможет лучше понять поколение.</p>
+  <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdOxXHmzbNO8n3Jsy7pN947C5pUuQKBQz4mImwIrRXs4Cj1VA/viewform?usp=publish-editor" target="_blank" rel="noopener" aria-label="Пройти опрос (новая вкладка)">Пройти опрос</a>
+ </div>
+</div>
+</div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+<div class="wrap">
+ <div class="grid">
+  <div><h4>Авторы</h4><ul><li>Власкин Сергей</li><li>Сериков Вадим</li><li>Долов Семён</li><li>Мягких Тимофей</li></ul></div>
+  <div><h4>Основные источники</h4><ul><li>ВОЗ, 2019; AAP, 2016</li><li>Bandura, Gerbner, Huesmann, Christakis, Lillard</li><li>Oxford University Press, 2024</li><li>Nguyen et al., Psychological Bulletin, 2025</li><li>ФЗ № 436-ФЗ</li></ul><p style="margin-top:8px"><a href="#theory" style="color:var(--or)">Полный список в разделе «Теория»</a></p></div>
+  <div><h4>О проекте</h4><p>Учебный проект о влиянии телевидения и экранов на детей.</p></div>
+ </div>
+ <p class="disc">Пилотное исследование, не является репрезентативным.<br>© <span id="yr"></span> ТВ и дети</p>
+</div>
+</footer>
+
+<script>
+/* ===== Утилиты ===== */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const pages=['home','theory','brainrot','content','research','tools','tips'];
+const nav=$('#nav'),bg=$('#burger');
+$('#yr').textContent=new Date().getFullYear();
+
+/* ===== Фото: если Unsplash недоступен, подставляется иллюстрация ===== */
+function fb(img){
+ if(img.dataset.fb)return;img.dataset.fb=1;
+ const e=img.dataset.e||'📺';
+ const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#27427f"/><stop offset="1" stop-color="#ff7a1a"/></linearGradient></defs><rect width="600" height="340" fill="url(#g)"/><text x="300" y="215" font-size="140" text-anchor="middle">'+e+'</text></svg>';
+ img.src='data:image/svg+xml;utf8,'+encodeURIComponent(svg);
+}
+$$('img[data-e]').forEach(i=>{i.addEventListener('error',()=>fb(i));if(i.complete&&i.naturalWidth===0)fb(i)});
+
+/* ===== Тема ===== */
+$('#theme').addEventListener('click',()=>{
+ const d=document.documentElement.dataset.theme==='dark';
+ document.documentElement.dataset.theme=d?'':'dark';$('#theme').textContent=d?'🌙':'☀️';
+});
+
+/* ===== Бургер ===== */
+bg.addEventListener('click',()=>{const o=nav.classList.toggle('open');bg.setAttribute('aria-expanded',o);bg.textContent=o?'✕':'☰'});
+
+/* ===== Индикатор прокрутки ===== */
+addEventListener('scroll',()=>{const h=document.documentElement;$('#prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100)+'%'},{passive:true});
+
+/* ===== Маршрутизация: каждый раздел — отдельная страница ===== */
+function route(){
+ let h=location.hash.replace('#','');if(!pages.includes(h))h='home';
+ $$('.page').forEach(p=>p.classList.toggle('active',p.id==='p-'+h));
+ $$('nav a').forEach(a=>a.classList.toggle('on',a.dataset.p===h));
+ nav.classList.remove('open');bg.textContent='☰';bg.setAttribute('aria-expanded','false');
+ window.scrollTo(0,0);
+ document.title=(h==='home'?'':$('#p-'+h+' h1').textContent+' — ')+'ТВ и дети';
+ if(h==='research')drawSurvey();
+ if(h==='home')countUp();
+}
+addEventListener('hashchange',route);
+
+/* ===== Счётчики на главной ===== */
+function countUp(){
+ $$('.cnt').forEach(el=>{
+  const to=+el.dataset.to,t0=performance.now(),dur=1400;
+  (function s(t){const p=Math.min((t-t0)/dur,1),v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('ru-RU');if(p<1)requestAnimationFrame(s)})(t0);
+ });
+}
+
+/* ===== Интерактивный ТВ ===== */
+const chans=[
+ ['Brain rot — слово 2024 года по версии Oxford. Частота его использования выросла на 230% за год.','Oxford University Press, 2024'],
+ ['ВОЗ: до 1 года экраны не рекомендуются, в 2–4 года не более часа в день.','ВОЗ, 2019'],
+ ['Первое известное упоминание «brain rot» — в книге Генри Торо «Уолден» 1854 года.','Oxford, Thoreau'],
+ ['71 исследование, 98 299 участников: больше коротких видео — слабее внимание и самоконтроль. Это связь, а не доказанная причина.','Psychological Bulletin, 2025'],
+ ['Эксперимент Бандуры (1961): дети, видевшие агрессию взрослого, чаще повторяли её.','Bandura et al., 1961'],
+ ['Закон № 436-ФЗ: на передачах и фильмах ставят знаки 0+, 6+, 12+, 16+ или 18+.','ФЗ № 436-ФЗ']
+];
+let ci=0;
+function tv(){
+ const s=$('#screen');s.classList.remove('flash');void s.offsetWidth;s.classList.add('flash');
+ $('#chn').textContent='КАНАЛ '+(ci+1);$('#chtx').textContent=chans[ci][0];$('#chsrc').textContent='Источник: '+chans[ci][1];
+ ci=(ci+1)%chans.length;
+}
+$('#chbtn').addEventListener('click',tv);$('#screen').addEventListener('click',tv);tv();
+
+/* ===== Игра «Миф или факт» ===== */
+function game(box,items){
+ let i=0,sc=0,done=false;
+ function show(){
+  done=false;
+  if(i>=items.length){
+   const m=sc===items.length?'Отлично! Вы разбираетесь в теме 🏆':sc>=items.length*0.6?'Хороший результат 👍':'Есть что почитать выше — попробуйте ещё раз 📚';
+   box.innerHTML='<div class="ic">🎯</div><h3>Ваш результат: '+sc+' из '+items.length+'</h3><p style="color:var(--mt);margin:8px 0 20px">'+m+'</p><button class="btn btn-d" type="button" id="rs">Сыграть снова</button>';
+   box.querySelector('#rs').onclick=()=>{i=0;sc=0;show()};return;
+  }
+  box.innerHTML='<div class="gtop"><span>Вопрос '+(i+1)+' из '+items.length+'</span><span>Баллы: '+sc+'</span></div><div class="meter"><i style="width:'+(i/items.length*100)+'%"></i></div><div class="st">'+items[i].q+'</div><div class="row"><button class="btn btn-m" type="button" data-a="0">Миф</button><button class="btn btn-f" type="button" data-a="1">Факт</button></div><div class="fb" aria-live="polite"></div>';
+  box.querySelectorAll('.row button').forEach(b=>b.onclick=()=>{
+   if(done)return;done=true;
+   const ok=(+b.dataset.a===1)===items[i].f;if(ok)sc++;
+   const f=box.querySelector('.fb');f.className='fb show '+(ok?'ok':'no');
+   f.innerHTML='<b>'+(ok?'Верно! ':'Не совсем. ')+'Это '+(items[i].f?'факт':'миф')+'.</b> '+items[i].e+'<p style="margin-top:12px"><button class="btn btn-d" type="button" id="nx">'+(i+1<items.length?'Дальше':'Результат')+'</button></p>';
+   f.querySelector('#nx').onclick=()=>{i++;show()};
+  });
+ }
+ show();
+}
+game($('#game1'),[
+ {q:'Исследования, где час просмотра ТВ связан с проблемами внимания, доказывают, что телевизор их вызывает.',f:false,e:'Это корреляция. Авторы подчёркивают, что на связь могут влиять другие факторы.'},
+ {q:'ВОЗ не рекомендует экраны детям до 1 года.',f:true,e:'Рекомендации ВОЗ 2019 года: до 1 года сидячее экранное время не рекомендуется.'},
+ {q:'Все образовательные программы одинаково полезны детям любого возраста.',f:false,e:'Важны содержание, возраст ребёнка и участие взрослого. Малыши хуже усваивают информацию с экрана.'},
+ {q:'В эксперименте Бандуры дети, увидевшие агрессию взрослого, чаще её повторяли.',f:true,e:'Так проверяли теорию социального научения: подражать можно моделям из реальной жизни и с экрана.'},
+ {q:'Знак 12+ означает, что передачу можно смотреть детям любого возраста.',f:false,e:'Знак 12+ означает категорию для детей, достигших 12 лет. Для младших она не предназначена.'},
+ {q:'Совместный просмотр с родителем — рекомендуемая практика.',f:true,e:'Американская академия педиатрии советует смотреть вместе и обсуждать увиденное.'}
+]);
+game($('#game2'),[
+ {q:'Термин «brain rot» придумали подростки в TikTok.',f:false,e:'Первое зафиксированное использование — в «Уолдене» Генри Торо, 1854 год.'},
+ {q:'«Brain rot» — официальный медицинский диагноз.',f:false,e:'Oxford описывает его как предполагаемое ухудшение состояния, это образное выражение, а не диагноз.'},
+ {q:'Слово года Oxford 2024 выбрали только эксперты.',f:false,e:'Было общественное голосование (более 37 000 человек), затем решение приняли эксперты с учётом данных.'},
+ {q:'Tung Tung Tung Sahur имеет индонезийские корни.',f:true,e:'Фраза связана с традицией Рамадана — побудкой перед рассветной трапезой. Мем причисляют к Italian brainrot по формату.'},
+ {q:'Мета-анализ 2025 года доказал, что короткие видео разрушают мозг.',f:false,e:'Выявлена связь с более слабым вниманием и большим стрессом, но причинность не доказана, а авторы просят больше экспериментов.'},
+ {q:'Tralalero Tralala считают первым героем Italian brainrot.',f:true,e:'Эту акулу в кроссовках широко считают первым примером тренда, хотя точное происхождение неясно.'}
+]);
+
+/* ===== Брейнрот: хронология ===== */
+$$('#tl>div').forEach(d=>d.addEventListener('click',()=>{$$('#tl>div').forEach(x=>x.classList.remove('on'));d.classList.add('on')}));
+
+/* ===== Брейнрот: карточки героев (переворот) ===== */
+const chars=[
+ ['🦈','Tralalero Tralala','Акула в синих кроссовках Nike. Считается первым героем Italian brainrot, появилась в TikTok в начале 2025 года.'],
+ ['🪵','Tung Tung Tung Sahur','Деревянный персонаж с бейсбольной битой. Имя пришло из Индонезии: так звали на побудку перед рассветной трапезой в Рамадан.'],
+ ['🐊','Bombardiro Crocodilo','Крокодил-бомбардировщик. Пример типичного «гибрида» животного и техники с итальянским именем.'],
+ ['🐒','Brr Brr Patapim','Гибрид обезьяны и дерева с огромными ступнями. Пик популярности пришёлся на март 2025 года.'],
+ ['🚽','Skibidi Toilet','Поющие унитазы с человеческими головами из серии на YouTube (2023). Это отдельное явление, появившееся раньше Italian brainrot.']
+];
+$('#chars').innerHTML=chars.map(c=>'<button class="card flip" type="button"><div class="fr"><div class="em">'+c[0]+'</div><h3>'+c[1]+'</h3><span class="hint">Нажмите, чтобы узнать →</span></div><div class="bk"><h3>'+c[1]+'</h3><p style="color:var(--mt)">'+c[2]+'</p></div></button>').join('');
+$$('.flip').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')));
+
+/* ===== Брейнрот: генератор ===== */
+const an=[['акула','🦈','акулы'],['крокодил','🐊','крокодила'],['обезьяна','🐒','обезьяны'],['слон','🐘','слона'],['кошка','🐈','кошки'],['лягушка','🐸','лягушки']];
+const ob=[['кроссовки','👟'],['бомбардировщик','✈️'],['банан','🍌'],['капучино','☕'],['барабан','🥁'],['тапок','🩴']];
+const rt=['Бомба','Тра','Бри','Чим','Лири','Кап','Тун','Бал'],mid=['ла','ли','па','ни','ро','му'],en=['ино','елло','ини','илло','оне','ато'];
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+$('#ggo').addEventListener('click',()=>{
+ const a=pick(an),o=pick(ob),name=pick(rt)+pick(mid)+pick(en)+' '+pick(rt)+pick(mid)+pick(en);
+ $('#gemo').textContent=a[1]+o[1];$('#gname').textContent=name;$('#gdesc').textContent='Гибрид: '+a[0]+' + '+o[0]+'. Голос за кадром: уверенный «итальянский» набор слогов.';
+});
+
+/* ===== Брейнрот: словарик ===== */
+const wd={
+ 'brain rot':'Oxford: предполагаемое ухудшение умственного состояния из-за избытка тривиального онлайн-контента. Слово года 2024.',
+ 'rizz':'Сокращение от charisma, способность привлекать внимание и симпатию. Слово года Oxford 2023.',
+ 'slop':'Одно из слов-финалистов Oxford 2024: низкокачественный контент, особенно массово созданный с помощью ИИ.',
+ 'lore':'Финалист Oxford 2024: «история» и подробности вымышленной вселенной или явления, которые обсуждают фанаты.',
+ 'demure':'Финалист Oxford 2024: слово получило новую жизнь в TikTok-тренде о сдержанном, «осознанном» поведении.',
+ 'Italian brainrot':'Тренд начала 2025 года: сгенерированные ИИ абсурдные существа с «итальянскими» именами и закадровым голосом.'
+};
+$('#words').innerHTML=Object.keys(wd).map(k=>'<button type="button">'+k+'</button>').join('');
+$$('#words button').forEach(b=>b.addEventListener('click',()=>{$$('#words button').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#wdef').textContent=wd[b.textContent]}));
+
+/* ===== Контент: фильтр жанров ===== */
+$$('.chip').forEach(c=>c.addEventListener('click',()=>{
+ $$('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');
+ $$('.genre').forEach(g=>g.classList.toggle('hide',c.dataset.f!=='all'&&g.dataset.k!==c.dataset.f));
+}));
+
+/* ===== Контент: возрастная маркировка ===== */
+$$('#mark button').forEach(b=>b.addEventListener('click',()=>{$$('#mark button').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#mdef').textContent=b.dataset.t}));
+
+/* ===== Контент: чек-лист ===== */
+const cks=$$('.chk input');
+cks.forEach(c=>c.addEventListener('change',()=>{const n=cks.filter(x=>x.checked).length;$('#cm').style.width=n/cks.length*100+'%';$('#ct').textContent='Отмечено: '+n+' из '+cks.length}));
+
+/* ===== Результаты опроса: загружаются автоматически из Google Таблицы =====
+   1) Google Форма → «Ответы» → «Связать с Таблицами».
+   2) В таблице: Файл → Поделиться → Опубликовать в Интернете → выбрать лист с ответами и формат CSV.
+   3) Скопируйте ссылку и вставьте её ниже в SHEET_CSV_URL. */
+const SHEET_CSV_URL='';
+const SHOW_QUOTES=true;                    /* показывать развёрнутые ответы как цитаты */
+const HIDE_COLS=/имя|фамил|e-?mail|почт|телефон|контакт|отметка времени|timestamp/i; /* такие столбцы не показываются */
+
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function parseCSV(t){
+ const rows=[];let r=[],c='',q=false;
+ for(let i=0;i<t.length;i++){const ch=t[i];
+  if(q){if(ch==='"'){if(t[i+1]==='"'){c+='"';i++}else q=false}else c+=ch}
+  else{if(ch==='"')q=true;else if(ch===','){r.push(c);c=''}else if(ch==='\n'){r.push(c);rows.push(r);r=[];c=''}else if(ch!=='\r')c+=ch}
+ }
+ if(c!==''||r.length){r.push(c);rows.push(r)}
+ return rows;
+}
+
+/* Превращает таблицу в графики (закрытые вопросы) и цитаты (открытые вопросы) */
+function buildSurvey(rows){
+ const head=rows[0]||[],data=rows.slice(1).filter(r=>r.some(x=>x.trim()));
+ const n=data.length,questions=[],quotes=[];
+ head.forEach((h,j)=>{
+  if(!h.trim()||HIDE_COLS.test(h))return;
+  const vals=data.map(r=>(r[j]||'').trim()).filter(Boolean);
+  if(!vals.length)return;
+  const uniq=[...new Set(vals)],avg=vals.reduce((a,v)=>a+v.length,0)/vals.length;
+  if(uniq.length<=8&&avg<=45&&!(uniq.length===vals.length&&avg>20)){
+   const cnt=uniq.map(u=>[u,vals.filter(v=>v===u).length]).sort((x,y)=>y[1]-x[1]);
+   questions.push({t:h.trim(),l:cnt.map(x=>x[0]),v:cnt.map(x=>x[1]),k:vals.length});
+  }else if(SHOW_QUOTES){
+   vals.filter(v=>v.length>=15&&v.length<=300).slice(-6).forEach(v=>quotes.push({t:v,a:'Участник опроса'}));
+  }
+ });
+ return {n,questions,quotes:quotes.slice(-6)};
+}
+
+function renderSurvey(S){
+ const box=$('#survey');
+ if(!S||!S.n){box.innerHTML='<div class="empty"><div class="ic">⏳</div><h3>Ответов пока нет</h3><p style="color:var(--mt);max-width:520px;margin:8px auto 0">Как только появятся первые ответы, графики построятся здесь автоматически.</p></div>';return}
+ let h='<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px"><h2 style="margin:0">Результаты (n = '+S.n+')</h2><span><small style="color:var(--mt)">Обновлено: '+new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'})+'</small> <button class="btn btn-l" id="sref" type="button" style="padding:8px 16px">⟳ Обновить</button></span></div><div class="grid two" style="margin-top:20px">';
+ S.questions.forEach(d=>{const m=Math.max(...d.v);
+  h+='<div class="card chart"><h3>'+esc(d.t)+'</h3><small>n = '+(d.k||S.n)+'</small><div class="bars">'+d.v.map((v,i)=>'<div class="bar"><b>'+v+'</b><i style="height:'+(v/m*100)+'%" role="img" aria-label="'+esc(d.l[i])+': '+v+' из '+(d.k||S.n)+'"></i></div>').join('')+'</div><div class="lbls">'+d.l.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div></div>'});
+ h+='</div>';
+ if(S.quotes&&S.quotes.length)h+='<h2>Голос поколения</h2><div class="grid g3">'+S.quotes.map(q=>'<div class="card quote">«'+esc(q.t)+'»<cite>— '+esc(q.a)+'</cite></div>').join('')+'</div>';
+ box.innerHTML=h;
+ const b=$('#sref');if(b)b.onclick=drawSurvey;
+}
+
+async function drawSurvey(){
+ const box=$('#survey');
+ if(!SHEET_CSV_URL){box.innerHTML='<div class="empty"><div class="ic">🔗</div><h3>Источник данных ещё не подключён</h3><p style="color:var(--mt);max-width:560px;margin:8px auto 0">Вставьте ссылку на опубликованную Google Таблицу в переменную SHEET_CSV_URL в коде сайта, и результаты будут подгружаться автоматически.</p></div>';return}
+ box.innerHTML='<div class="empty"><div class="ic">⏳</div><h3>Загружаем ответы…</h3></div>';
+ try{
+  const u=SHEET_CSV_URL+(SHEET_CSV_URL.includes('?')?'&':'?')+'t='+Date.now();
+  const r=await fetch(u);if(!r.ok)throw new Error(r.status);
+  renderSurvey(buildSurvey(parseCSV(await r.text())));
+ }catch(e){
+  box.innerHTML='<div class="empty"><div class="ic">⚠️</div><h3>Не удалось загрузить результаты</h3><p style="color:var(--mt);max-width:560px;margin:8px auto 16px">Проверьте ссылку и что таблица опубликована в формате CSV. Если Google недоступен, попробуйте позже.</p><button class="btn btn-l" id="sref" type="button">Повторить</button></div>';
+  $('#sref').onclick=drawSurvey;
+ }
+}
+
+/* ===== Тест ===== */
+const qs=['Есть ли в семье лимит времени у экрана?','Выключается ли ТВ во время еды?','Смотрите ли вы передачи вместе с ребёнком?','Проверяете ли вы возрастную маркировку?','Обсуждаете ли вы увиденное?','Выключен ли ТВ за час до сна?','Есть ли у ребёнка занятия без экранов?'];
+const quiz=$('#quiz');
+qs.forEach((q,i)=>quiz.insertAdjacentHTML('beforeend','<div class="q"><p>'+(i+1)+'. '+q+'</p><div class="opts">'+[['Да',2],['Иногда',1],['Нет',0]].map(o=>'<label><input type="radio" name="q'+i+'" value="'+o[1]+'"><span>'+o[0]+'</span></label>').join('')+'</div></div>'));
+const res=$('#qres'),qerr=$('#qerr');
+quiz.addEventListener('change',()=>{const n=qs.filter((_,i)=>quiz.querySelector('input[name=q'+i+']:checked')).length;$('#qm').style.width=n/qs.length*100+'%';$('#qt').textContent='Отвечено: '+n+' из '+qs.length});
+$('#qgo').addEventListener('click',()=>{
+ let s=0;
+ for(let i=0;i<qs.length;i++){const r=quiz.querySelector('input[name=q'+i+']:checked');if(!r){qerr.textContent='Ответьте на все вопросы (не отвечено: №'+(i+1)+').';return}s+=+r.value}
+ qerr.textContent='';let cls,t,p;
+ if(s>=11){cls='low';t='Низкий риск ✅';p='Вы хорошо контролируете экран. Продолжайте обсуждать контент с ребёнком.'}
+ else if(s>=6){cls='mid';t='Средний риск ⚠️';p='Есть хорошие привычки, но правил не хватает. Введите лимит времени и «часы без экрана». Составьте семейный план в разделе «Советы».'}
+ else{cls='high';t='Высокий риск 🚨';p='ТВ слишком свободно в вашей семье. Начните с одного правила: экран выключен за час до сна и во время еды.'}
+ res.className='res show '+cls;res.innerHTML='<h3>'+t+' — '+s+' из 14</h3><p>'+p+'</p>';
+ $('#qre').style.display='inline-flex';res.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+$('#qre').addEventListener('click',()=>{quiz.reset();res.className='res';qerr.textContent='';$('#qre').style.display='none';$('#qm').style.width='0';$('#qt').textContent='Отвечено: 0 из 7'});
+
+/* ===== Калькулятор ===== */
+const lim={0:0,1:0,2:1,3:null};
+function calc(){
+ const v=parseFloat($('#hrs').value),e=$('#cerr'),o=$('#cout'),cv=$('#cv');
+ if(isNaN(v)||v<0||v>24){e.textContent='Введите число от 0 до 24.';o.innerHTML='';cv.className='verdict';return}
+ e.textContent='';$('#hv').textContent=v;
+ const y=v*365,d=y/24,yr=d*18/365;
+ o.innerHTML='<div><b>'+Math.round(y).toLocaleString('ru-RU')+'</b>часов в год</div><div><b>'+d.toFixed(1)+'</b>дней в год</div><div><b>'+yr.toFixed(1)+'</b>лет к 18 годам</div>';
+ const a=+$('#age').value,L=lim[a];let m,c;
+ if(L===null){m='Для школьников универсального лимита нет. Главное, чтобы экран не вытеснял сон, учёбу, движение и живое общение.';c='rgba(255,122,26,.15)'}
+ else if(L===0){m=v===0?'Соответствует рекомендации ВОЗ: без экранов. 👍':'ВОЗ не рекомендует экранное время в этом возрасте. Попробуйте заменить его игрой и общением.';c=v===0?'rgba(31,169,113,.15)':'rgba(229,72,77,.13)'}
+ else{m=v<=L?'В пределах рекомендации: до '+L+' часа в день. 👍':'Больше рекомендации ВОЗ и AAP (до '+L+' часа в день) в '+(v/L).toFixed(1).replace('.0','')+' раза.';c=v<=L?'rgba(31,169,113,.15)':'rgba(229,72,77,.13)'}
+ cv.textContent=m;cv.style.background=c;cv.className='verdict show';
+}
+$('#hr').addEventListener('input',()=>{$('#hrs').value=$('#hr').value;calc()});
+$('#hrs').addEventListener('input',()=>{$('#hr').value=$('#hrs').value;calc()});
+$('#age').addEventListener('change',calc);calc();
+
+/* ===== Семейный план ===== */
+$('#pgo').addEventListener('click',()=>{
+ const rules=$$('.plan label.r').filter(l=>l.querySelector('input').checked).map(l=>'• '+l.textContent.trim());
+ const t='НАШЕ СЕМЕЙНОЕ СОГЛАШЕНИЕ ОБ ЭКРАНАХ\n\nВозраст: '+$('#pa').value+'.\n\nПравила:\n'+(rules.length?rules.join('\n'):'• (выберите хотя бы одно правило)')+'\n\nМы пересматриваем соглашение вместе раз в месяц.';
+ const p=$('#pout');p.textContent=t;p.style.display='block';$('#pcp').style.display='inline-flex';$('#pcs').textContent='';
+});
+$('#pcp').addEventListener('click',async()=>{
+ const t=$('#pout').textContent;
+ try{await navigator.clipboard.writeText(t);$('#pcs').textContent='Скопировано ✓'}
+ catch(e){const r=document.createRange();r.selectNodeContents($('#pout'));const s=getSelection();s.removeAllRanges();s.addRange(r);$('#pcs').textContent='Текст выделен: нажмите Ctrl+C'}
+});
+
+route();
+</script>
+</body>
+</html>
